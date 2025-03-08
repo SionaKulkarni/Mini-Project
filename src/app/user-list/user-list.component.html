@@ -1,0 +1,22 @@
+<h2>User List</h2>
+
+<table *ngIf="users.length > 0; else noUsers">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let user of users">
+    <td>{{ user.name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.phone }}</td>
+    <td>
+      <button (click)="onDelete(user.id)">Delete</button> <!-- ✅ Fix delete button -->
+    </td>
+  </tr>
+</table>
+
+<ng-template #noUsers>
+  <p>No users found.</p>
+</ng-template>
